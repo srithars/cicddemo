@@ -1,0 +1,31 @@
+CI/CD Steps:
+GitHub(repository)-->Code Build(Testing)-->Code Deploy (Deployment)-->Code pipeline
+
+Mandatory: "Git bash" in machine, AWS mangement console
+
+*Do all in ap-south-1(mumbai) region
+
+1. Create "Github" repo & push files from local folder
+>git clone URL
+>git status
+>git add -A
+>git status
+>git commit -m "Upload version-1"
+>git push
+
+2. Code Build-Testing (Before build-Create AWSCodeBuildAdminAccess Role)
+
+3. Create CodeDeploy & s3fullaccess roles
+
+4. Launch EC2 machine(Attach S3full access, Install CodeDeploy Agent)
+    Code Deploy Agent Installation:
+   sudo yum update -y
+   sudo yum install -y ruby wget
+   wget https://aws-codedeploy-eu-west-1.s3.eu-west-1.amazonaws.com/latest/install
+   chmod +x ./install
+   sudo ./install auto
+   sudo service codedeploy-agent status
+5. Code Deploy(Attach CodeDeploy Role)
+6. Code Pipeline
+
+Git Link: https://github.com/srithars/aws/tree/main/devops-app
